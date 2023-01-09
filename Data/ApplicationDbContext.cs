@@ -10,12 +10,13 @@ namespace Authentication_And_Authorization_In_MVC.Data
 
         public class ApplicationDbContext : IdentityDbContext
         {
-            public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-                : base(options)
-            { }
-        public DbSet<Authentication_And_Authorization_In_MVC.Models.UserDetail> tbl_UserDetails { get; set; }
+            public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+
+             {
+             }
+             public DbSet<Authentication_And_Authorization_In_MVC.Models.UserDetail> tbl_UserDetails { get; set; }
 
 
 
-    }
+         }
 }

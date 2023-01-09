@@ -5,7 +5,7 @@ namespace Authentication_And_Authorization_In_MVC.Models
 {
     public class UserDetail
     {
-
+        [Key]
         public int UserId { get; set; }
 
         [Required]
@@ -25,7 +25,7 @@ namespace Authentication_And_Authorization_In_MVC.Models
 
         [Required]
         [Display(Name = "Role")]
-        public int Role { get; set; }
+        public RoleType Role { get; set; }
 
 
 
@@ -35,7 +35,19 @@ namespace Authentication_And_Authorization_In_MVC.Models
         [Display(Name = "Email")]
 
         public string Email { get; set; } = string.Empty;
+        /// <summary>
+        /// The [StringLength] attribute is used to specify the minimum and maximum length of a string field. In this case, the attribute is specifying that the string must be at least 6 characters long and no longer than 100 characters.
 
+       /// The {0}
+  ///  placeholder in the error message string represents the name of the field, and the {2}
+  ///  and {1}
+///placeholders represent the minimum and maximum length of the field, respectively.
+
+///For example, if the string field is named "Password", the error message would be displayed as "The Password must be at least 6 and at max 100 characters long."
+
+///This attribute is often used to ensure that user-provided strings meet certain length requirements, such as passwords that must be at least a certain number of characters long.
+
+        /// </summary>
 
 
         [Required]

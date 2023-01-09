@@ -13,7 +13,7 @@ builder.Services.AddDbContext<Authentication_And_Authorization_In_MVC.Data.Appli
 
 
 
-
+builder.Services.AddMvc();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

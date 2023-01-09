@@ -1,0 +1,84 @@
+﻿@using Authentication_And_Authorization_In_MVC;
+@model UserDetail;
+@{
+    ViewData["Title"] = "Create_Profile";
+    Layout = "~/Views/Shared/_Layout_none.cshtml";
+}
+
+<head>
+      <link rel="stylesheet" href="~/css/Profile.css" asp-append-version="true" />
+
+
+
+</head>
+
+
+
+<div class="box">
+      <div class="upload">
+        <img src="~/Images/noprofile.jpg" width=100 height=100 alt="">
+
+        <div class="round">
+          <i class=" fa fa-camera" style="color: #fff;"></i>
+
+          <input type="file">
+        </div>
+      </div>
+      <div >
+        <form asp-action="CreateProfile" class="input-container">
+          <div class="txt_field">
+            <input asp-for="FullName"type="text" required>
+           @* <span asp-validation-for="FullName"></span>*@
+            <span></span>
+            <label asp-for="FullName">Full Name</label>
+          </div>
+          <div class="txt_field">
+            <input asp-for="Address" type="text" required>
+            <span></span>
+            <label asp-for="Address">Address</label>
+          </div>
+          <div class="txt_field">
+             <input asp-for="Email" type="email" required>
+            <span></span>
+            <label asp-for="Email">Email</label>
+          </div>
+           <div class="txt_field">
+            <input asp-for="PhoneNumber" type="text" required>
+            <span></span>
+            <label asp-for="PhoneNumber">Phone Number</label>
+          </div>
+          <div class="header">
+          <div class="text_field">
+            <label class="choose">Choose a role</label>
+            </div>
+                <div class="role">
+            <input asp-for="Role" id="RadioButton1" type="radio" name="role" value="1" /><label="RadioButton1">Client</label>
+            <input asp-for="Role" id="RadioButton2" type="radio" name="role" value="0" /><label="RadioButton2">Technician</label> 
+          </div>
+           
+          </div>
+          <div class="txt_field">
+             <input asp-for="Password" type="password" required>
+            <span></span>
+            <label asp-for="Password">Password</label>
+          </div>
+
+
+            @*  <select name="Role_Determine">
+  <option value="Client">Client</option>
+  <option value="Technician">Technician</option>
+
+</select>*@
+
+
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+
+    </div>
+  </div>
+ @* @section scripts{
+      @{
+          <Partial=name="_ValidationScriptsPartial"/>
+      }
+  }*@
