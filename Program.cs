@@ -1,5 +1,8 @@
 using Authentication_And_Authorization_In_MVC;
+using Authentication_And_Authorization_In_MVC.Models;
+using Authentication_And_Authorization_In_MVC.Repositories;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +18,7 @@ builder.Services.AddDbContext<Authentication_And_Authorization_In_MVC.Data.Appli
 
 builder.Services.AddMvc();
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IRepository<UserDetail,int>,RegisterRepository>(); //Adding dependency injection for the repository pattern 
 
 var app = builder.Build();
 

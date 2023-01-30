@@ -2,15 +2,19 @@
 using Authentication_And_Authorization_In_MVC.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Authentication_And_Authorization_In_MVC.Repositories;
 
 namespace Authentication_And_Authorization_In_MVC.Controllers
 {
     public class Register : Controller
     {
         private readonly ApplicationDbContext _context;
-        public Register(ApplicationDbContext context)
+        private readonly IRepository<UserDetail, int> registerRepository;
+
+        public Register(IRepository<UserDetail,int> registerRepository)
         {
-            _context = context;
+            this.registerRepository = registerRepository;
+            //_context = context;
         }
 
 
@@ -34,19 +38,25 @@ namespace Authentication_And_Authorization_In_MVC.Controllers
 
         public IActionResult CreateProfile(UserDetail user)
         {
+            //var test = ModelState.IsValid;
+            //if (ModelState.IsValid)
+            //{
+            //    _context.tbl_UserDetails.Add(user);
+            //    _context.SaveChanges();
+
+
+
+            //}
             var test = ModelState.IsValid;
             if (ModelState.IsValid)
             {
-                _context.tbl_UserDetails.Add(user);
-                _context.SaveChanges();
-
-
-
+                registerRepository.Insert(user);
+                registerRepository.Save();
+                
             }
 
 
-
-            return RedirectToAction(actionName: "signin", controllerName: "register");
+                return RedirectToAction(actionName: "signin", controllerName: "register");
 
         }
 
